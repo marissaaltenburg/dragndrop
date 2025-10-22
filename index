@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Match The Skills to Holland’s Career Types</title>
+<style>
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #f0f4f8;
+  padding: 20px;
+}
+h1 {
+  color: #0B3D91;
+  font-weight: bold;
+  text-align: center;
+}
+#description {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #0B3D91;
+}
+#progressContainer {
+  width: 100%;
+  max-width: 900px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 auto 20px auto;
+  height: 25px;
+  border: 1px solid #0B3D91;
+}
+#progressBar {
+  height: 100%;
+  width: 0%;
+  background-color: #90ee90; /* lighter green */
+  color: #0B3D91; /* dark blue font */
+  text-align: center;
+  font-weight: bold;
+  line-height: 25px;
+  transition: width 0.3s;
+}
+
+/* Container layout: left skills, right boxes */
+#dhtmlgoodies_dragDropContainer {
+  display: flex;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* LEFT COLUMN - Skills as buttons */
+#dhtmlgoodies_listOfItems {
+  flex: 1;
+  min-width: 200px;
+}
+#dhtmlgoodies_listOfItems p {
+  background-color: #0B3D91;
+  color: #fff;
+  padding: 8px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  text-align: center;
+}
+#allItems {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  min-height: 500px;
+  border-radius: 6px;
+  background-color: #e0e0ff; /* light accessible blue */
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  list-style: none;
+}
+
+/* Buttons style - keep font consistent */
+#allItems button,
+#dhtmlgoodies_mainContainer ul button {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #87CEFA;
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: grab;
+  text-align: left;
+  display: inline-block;
+  width: 100%; /* fit inside the drop box */
+  box-sizing: border-box;
+}
+
+/* Correct / wrong feedback */
+.correctAnswer::before {
+  content: "✔ ";
+  color: green;
+  font-weight: bold;
+}
+.wrongAnswer::before {
+  content: "❌ ";
+  color: red;
+  font-weight: bold;
+}
+
+/* RIGHT COLUMN - Holland Codes (two rows x 3) */
+#dhtmlgoodies_mainContainer {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#dhtmlgoodies_mainContainer .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+#dhtmlgoodies_mainContainer section {
+  flex: 1 1 30%;
+  min-width: 250px;
+  border: 2px solid #999;
+  background-color: #d3d3d3; /* gray buttons look */
+  padding: 5px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+#dhtmlgoodies_mainContainer p {
+  background-color: #0B3D91;
+  color: #fff;
+  font-weight: bold;
+  padding: 6px;
+  margin: 0 0 5px 0;
+  text-align: center;
+}
+#dhtmlgoodies_mainContainer ul {
+  min-height: 100px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  list-style: none; /* remove bullets */
+}
+</style>
+</head>
+<body>
+<h1>Match The Skills to Holland’s Career Types</h1>
+<p id="description">
+Drag each skill into the correct career personality type box. Use keyboard or mouse. Correct placements show a ✅, incorrect placements show a ❌.
+</p>
+
+<div id="progressContainer">
+  <div id="progressBar">0%</div>
+</div>
+
+<div id="dhtmlgoodies_dragDropContainer">
+  <!-- LEFT: Skills List as buttons -->
+  <div id="dhtmlgoodies_listOfItems">
+    <p>Skills / Characteristics</p>
+    <ul id="allItems" role="listbox" aria-label="Available Skills">
+      <li><button id="node1" groupid="boxConventional" draggable="true">Data Management</button></li>
+      <li><button id="node2" groupid="boxInvestigative" draggable="true">Analytical</button></li>
+      <li><button id="node3" groupid="boxSocial" draggable="true">Caring</button></li>
+      <li><button id="node4" groupid="boxArtistic" draggable="true">Creative</button></li>
+      <li><button id="node5" groupid="boxInvestigative" draggable="true">Data-driven</button></li>
+      <li><button id="node6" groupid="boxArtistic" draggable="true">Expressive</button></li>
+      <li><button id="node7" groupid="boxRealistic" draggable="true">Hands-on</button></li>
+      <li><button id="node8" groupid="boxConventional" draggable="true">Detail-oriented</button></li>
+      <li><button id="node9" groupid="boxArtistic" draggable="true">Imaginative</button></li>
+      <li><button id="node10" groupid="boxEnterprising" draggable="true">Leading</button></li>
+      <li><button id="node11" groupid="boxEnterprising" draggable="true">Motivating</button></li>
+      <li><button id="node12" groupid="boxRealistic" draggable="true">Physical Skills</button></li>
+      <li><button id="node13" groupid="boxRealistic" draggable="true">Practical</button></li>
+      <li><button id="node14" groupid="boxInvestigative" draggable="true">Problem-solving</button></li>
+      <li><button id="node15" groupid="boxEnterprising" draggable="true">Selling Ideas</button></li>
+      <li><button id="node16" groupid="boxSocial" draggable="true">Supporting Others</button></li>
+      <li><button id="node17" groupid="boxSocial" draggable="true">Teaching</button></li>
+      <li><button id="node18" groupid="boxConventional" draggable="true">Structure</button></li>
+    </ul>
+  </div>
+
+  <!-- RIGHT: Holland Code Boxes (2 rows x 3) -->
+  <div id="dhtmlgoodies_mainContainer">
+    <div class="row">
+      <section>
+        <p>Realistic (Doers)</p>
+        <ul id="boxRealistic" role="list" aria-label="Realistic Skills"></ul>
+      </section>
+      <section>
+        <p>Investigative (Thinkers)</p>
+        <ul id="boxInvestigative" role="list" aria-label="Investigative Skills"></ul>
+      </section>
+      <section>
+        <p>Artistic (Creators)</p>
+        <ul id="boxArtistic" role="list" aria-label="Artistic Skills"></ul>
+      </section>
+    </div>
+    <div class="row">
+      <section>
+        <p>Social (Helpers)</p>
+        <ul id="boxSocial" role="list" aria-label="Social Skills"></ul>
+      </section>
+      <section>
+        <p>Enterprising (Persuaders)</p>
+        <ul id="boxEnterprising" role="list" aria-label="Enterprising Skills"></ul>
+      </section>
+      <section>
+        <p>Conventional (Organizers)</p>
+        <ul id="boxConventional" role="list" aria-label="Conventional Skills"></ul>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+const allButtons = document.querySelectorAll("#allItems button");
+const totalSkills = allButtons.length;
+const progressBar = document.getElementById("progressBar");
+
+allButtons.forEach(btn => {
+  btn.addEventListener("dragstart", dragStart);
+});
+
+document.querySelectorAll("#dhtmlgoodies_mainContainer ul").forEach(ul => {
+  ul.addEventListener("dragover", dragOver);
+  ul.addEventListener("drop", dropItem);
+});
+
+let draggedItem = null;
+
+function dragStart(e) {
+  draggedItem = this;
+  e.dataTransfer.effectAllowed = "move";
+  e.dataTransfer.setData("text/plain", this.id);
+}
+
+function dragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = "move";
+}
+
+function dropItem(e) {
+  e.preventDefault();
+  const draggedId = e.dataTransfer.getData("text/plain");
+  const draggedEl = document.getElementById(draggedId);
+
+  this.appendChild(draggedEl);
+
+  const correctGroup = draggedEl.getAttribute("groupid");
+  if (this.id === correctGroup) {
+    draggedEl.classList.add("correctAnswer");
+    draggedEl.classList.remove("wrongAnswer");
+  } else {
+    draggedEl.classList.add("wrongAnswer");
+    draggedEl.classList.remove("correctAnswer");
+  }
+
+  updateProgress();
+}
+
+function updateProgress() {
+  const correctCount = document.querySelectorAll(".correctAnswer").length;
+  const percent = Math.round((correctCount / totalSkills) * 100);
+  progressBar.style.width = percent + "%";
+  progressBar.textContent = percent + "%";
+
+  if (percent === 100) {
+    alert("✅ Congratulations! You placed all skills correctly!");
+  }
+}
+</script>
+</body>
+</html>
+
